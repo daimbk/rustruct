@@ -20,4 +20,15 @@ impl<T: Clone> Stack<T> {
     fn top(&mut self) -> Option<T> {
         self.list.last().cloned()
     }
+
+    fn is_empty(&self) -> bool {
+        let top = self.top();
+
+        match top {
+            Some(val) => {
+                false
+            }
+            None => true
+        }
+    }
 }
