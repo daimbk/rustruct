@@ -1,10 +1,10 @@
 // Stack
 
-struct Stack<T> {
+struct Stack<T: Clone> {
     list: Vec<T>,
 }
 
-impl<T> Stack<T> {
+impl<T: Clone> Stack<T> {
     fn new(list: Vec<T>) -> Self {
         Stack { list: Vec::new() }
     }
@@ -15,5 +15,9 @@ impl<T> Stack<T> {
 
     fn pop(&mut self) -> Option<T> {
         self.list.pop()
+    }
+
+    fn top(&mut self) -> Option<T> {
+        self.list.last().cloned()
     }
 }
