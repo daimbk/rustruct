@@ -1,31 +1,31 @@
 // Stack
 
-struct Stack<T: Clone> {
+pub struct Stack<T: Clone> {
     list: Vec<T>,
 }
 
 impl<T: Clone> Stack<T> {
-    fn new(list: Vec<T>) -> Self {
+    pub fn new() -> Self {
         Stack { list: Vec::new() }
     }
 
-    fn push(&mut self, data: T) {
+    pub fn push(&mut self, data: T) {
         self.list.push(data);
     }
 
-    fn pop(&mut self) -> Option<T> {
+    pub fn pop(&mut self) -> Option<T> {
         self.list.pop()
     }
 
-    fn top(&mut self) -> Option<T> {
+    pub fn top(&mut self) -> Option<T> {
         self.list.last().cloned()
     }
 
-    fn is_empty(&mut self) -> bool {
+    pub fn is_empty(&mut self) -> bool {
         let top = self.top();
 
         match top {
-            Some(val) => false,
+            Some(_val) => false,
             None => true,
         }
     }

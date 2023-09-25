@@ -7,12 +7,12 @@ struct Node<T> {
 }
 
 // <---- Linked List Structure ---->
-struct LinkedList<T> {
+pub struct LinkedList<T> {
     head: Option<Box<Node<T>>>,
 }
 
 impl<T> LinkedList<T> {
-    fn new() -> Self {
+    pub fn new() -> Self {
         LinkedList { head: None }
     }
 
