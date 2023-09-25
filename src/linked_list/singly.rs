@@ -6,15 +6,6 @@ struct Node<T> {
     next: Option<Box<Node<T>>>,
 }
 
-impl<T> Node<T> {
-    fn new(data: T) -> Self {
-        Node {
-            data,
-            next: None,
-        }
-    }
-}
-
 // <---- Linked List Structure ---->
 struct LinkedList<T> {
     head: Option<Box<Node<T>>>,
@@ -22,8 +13,16 @@ struct LinkedList<T> {
 
 impl<T> LinkedList<T> {
     fn new() -> Self {
-        LinkedList {
-            head: None,
-        }
+        LinkedList { head: None }
+    }
+
+    // pushes to front of list
+    pub fn push(&mut self, data: T) {
+        let new_node = Box::new(Node {
+            data,
+            next: self.head.take(),
+        });
+
+        self.head = Some(new_node);
     }
 }
