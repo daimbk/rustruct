@@ -21,14 +21,12 @@ impl<T: Clone> Stack<T> {
         self.list.last().cloned()
     }
 
-    fn is_empty(&self) -> bool {
+    fn is_empty(&mut self) -> bool {
         let top = self.top();
 
         match top {
-            Some(val) => {
-                false
-            }
-            None => true
+            Some(val) => false,
+            None => true,
         }
     }
 }
