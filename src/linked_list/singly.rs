@@ -25,4 +25,11 @@ impl<T> LinkedList<T> {
 
         self.head = Some(new_node);
     }
+
+    pub fn pop(&mut self) -> Option<T> {
+        self.head.take().map(|mut next_node| {
+            self.head = next_node.next.take();
+            next_node.data
+        })
+    }
 }
